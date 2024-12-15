@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty Character Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+    .filters, .pagination {
+      margin: 20px 0;
+    }
+    .details {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rick and Morty Character Table</h1>
+
+
+  <div class="filters">                                         <!-- Filtrelemenin yapılması-->
+    <input type="text" id="filterName" placeholder="Character Name">
+    <select id="filterStatus">
+      <option value="">Condition</option>  <!-- Duruma göre filtreleme-->
+      <option value="alive">Alive</option>
+      <option value="dead">Dead</option>
+      <option value="unknown">Unknown</option>
+    </select>
+    <button onclick="applyFilters()">Filter</button>
+  </div>
+
+  <table id="characterTable">       <!-- Karakter Tablosu-->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Condition</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+
+  <div class="pagination">        <!-- Sayfalar arasında ileri ve geri gitme-->
+    <button onclick="changePage(-1)" id="prevPage" disabled>Previous</button>
+    <button onclick="changePage(1)" id="nextPage" disabled>Next</button>
+  </div>
+
+  <div class="details" id="characterDetails">     <!-- Karakterlerin bilgileri-->
+    <h3>Character Details</h3>
+    <p id="detailsName"></p>
+    <p id="detailsStatus"></p>
+    <p id="detailsSpecies"></p>
+    <img id="detailsImage" src="" alt="Character Picture">
+  </div>
+
+  <script src="proje.js"></script>
+</body>
+</html>
